@@ -10,7 +10,7 @@ export default async function VenuesPage() {
       <h1>Toronto Remote Working Spots</h1>
       <div className='grid grid-cols-3 gap-2'>
         <p>Name</p>
-        <p>WFHScore</p>
+        <p>Rating</p>
         <p>Neighbourhood</p>
       </div>
       {venues.map((venue: Venue) => (

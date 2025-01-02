@@ -13,13 +13,13 @@ export default function Navbar() {
         className='hover:underline'
         href='/venues'
       >
-        Browse spots
+        browse spots
       </Link>
       <Link
         className='hover:underline'
         href='/neighbourhoods'
       >
-        Neighbourhood
+        neighbourhoods
       </Link>
     </div>
   );
