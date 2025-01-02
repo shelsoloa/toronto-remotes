@@ -1,4 +1,6 @@
 import { getNeighbourhoods } from '@/actions';
+import { Button } from '@/components/ui/button';
+import { SectionHeader } from '@/components/ui/header';
 import Link from 'next/link';
 
 export default async function NeighbourhoodIndexPage() {
@@ -6,12 +8,14 @@ export default async function NeighbourhoodIndexPage() {
 
   return (
     <div>
-      <h1 className='text-2xl font-bold'>Toronto Remote Working Spots by Neighbourhood</h1>
+      <SectionHeader>remote working spots by neighbourhood</SectionHeader>
 
       <ul className='flex flex-col gap-2 pt-4'>
         {neighbourhoods.map((neighbourhood) => (
           <li key={neighbourhood}>
-            <Link href={`/neighbourhoods/${neighbourhood}`}>{neighbourhood}</Link>
+            <Button variant='link' className='px-0' size='lg' asChild>
+              <Link href={`/neighbourhoods/${neighbourhood}`}>{neighbourhood}</Link>
+            </Button>
           </li>
         ))}
       </ul>

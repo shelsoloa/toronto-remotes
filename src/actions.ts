@@ -24,7 +24,9 @@ export async function getRecentlyAddedVenues(): Promise<Venue[]> {
 
 export async function getNeighbourhoods(): Promise<string[]> {
   const venues = await getVenues();
-  return venues.map((venue: Venue) => venue.fields.neighbourhood);
+  return venues
+    .map((venue: Venue) => venue.fields.neighbourhood)
+    .sort((a, b) => a.localeCompare(b));
 }
 
 export async function getVenuesByNeighbourhood(neighbourhood: string): Promise<Venue[]> {

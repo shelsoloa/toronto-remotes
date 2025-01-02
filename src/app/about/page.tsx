@@ -1,3 +1,5 @@
+import { SectionHeader } from "@/components/ui/header";
+
 export default function AboutPage() {
   return (
     <>
@@ -10,7 +12,7 @@ export default function AboutPage() {
 function AboutProjectSection() {
   return (
     <div className='flex flex-col'>
-      <h2 className='text-3xl font-bold'>the project</h2>
+      <SectionHeader>the project</SectionHeader>
       <p>
         The Toronto Remote Working Spots Database is a collection of remote working spots in
         Toronto.
@@ -24,7 +26,7 @@ function AboutProjectSection() {
 function AboutTeamSection() {
   return (
     <div className='flex flex-col pt-8'>
-      <h2 className='text-3xl font-bold'>the team</h2>
+      <SectionHeader>the team</SectionHeader>
       <p>
         TRWSDB is a project by{' '}
         <a
