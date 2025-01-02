@@ -12,7 +12,10 @@ export default async function Home() {
         <p>Neighbourhood</p>
       </div>
       {venues.map((venue) => (
-        <div className='grid grid-cols-3 gap-2'>
+        <div
+          key={venue.id}
+          className='grid grid-cols-3 gap-2'
+        >
           <p>{venue.fields.name}</p>
           <p>{venue.fields.score}</p>
           <p>{venue.fields.neighbourhood}</p>
