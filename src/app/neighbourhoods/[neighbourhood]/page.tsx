@@ -1,8 +1,10 @@
 import { getVenuesByNeighbourhood } from '@/actions';
 import VenueTable from '@/components/ui/venue';
 
-export default async function NeighbourhoodPage({ params }: { params: { neighbourhood: string } }) {
-  const neighbourhoodUnicode = decodeURI(params.neighbourhood);
+
+export default async function NeighbourhoodPage({ params }: { params: Promise<{ neighbourhood: string }> }) {
+  const { neighbourhood } = await params;
+  const neighbourhoodUnicode = decodeURI(neighbourhood);
   const venues = await getVenuesByNeighbourhood(neighbourhoodUnicode);
 
   return (

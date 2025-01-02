@@ -18,7 +18,7 @@ export default function VenueTable({ venues, showNeighbourhood = true }: VenueTa
         {showNeighbourhood && <p>Neighbourhood</p>}
       </div>
       {venues.map((venue: Venue) => (
-        <div className={`grid gap-2 ${gridCols}`}>
+        <div className={`grid gap-2 ${gridCols}`} key={venue.id}>
           <Button
             variant='link'
             className='justify-start px-0'
