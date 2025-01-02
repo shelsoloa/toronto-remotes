@@ -1,34 +1,17 @@
-import { getVenues } from '@/actions';
-import { Venue } from '@/schema';
-import Link from 'next/link';
+import { getRecentlyAddedVenues } from '@/actions';
+import VenueTable from '@/components/ui/venue';
 
 export default async function Home() {
-  const venues = await getVenues();
+  const recentlyAddedVenues = await getRecentlyAddedVenues();
 
   return (
     <div>
-      <h1>Venues</h1>
-      <div className='grid grid-cols-3 gap-2'>
-        <p>Name</p>
-        <p>WFHScore</p>
-        <p>Neighbourhood</p>
-      </div>
-      {venues.map((venue: Venue) => (
-        <div
-          key={venue.id}
-          className='grid grid-cols-3 gap-2'
-        >
-          <p>
-            <Link href={`/venues/${venue.id}`}>{venue.fields.name}</Link>
-          </p>
-          <p>{venue.fields.score}</p>
-          <p>
-            <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>
-              {venue.fields.neighbourhood}
-            </Link>
-          </p>
-        </div>
-      ))}
+      <h1 className='text-4xl font-bold'>
+        Toronto <span className='rounded bg-amber-300 px-1'>Remote Working Spots</span> Database
+      </h1>
+
+      <h2 className='text-2xl font-bold'>Recently added</h2>
+      <VenueTable venues={recentlyAddedVenues} />
     </div>
   );
 }

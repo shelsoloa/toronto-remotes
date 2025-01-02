@@ -1,8 +1,11 @@
 import { getVenueById } from '@/actions';
 import Link from 'next/link';
 
-export default async function VenuePage({ params }: { params: { venue: string } }) {
-  const venue = await getVenueById(params.venue);
+type Params = Promise<{ venue: string }>;
+
+export default async function VenuePage({ params }: { params: Params }) {
+  const { venue: venueId } = await params;
+  const venue = await getVenueById(venueId);
 
   return (
     <div>

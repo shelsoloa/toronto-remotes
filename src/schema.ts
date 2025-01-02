@@ -8,5 +8,6 @@ export type Venue = {
     cons: string;
     neighbourhood: string;
     categories: string[];
+    created: string | Date;
   };
 };

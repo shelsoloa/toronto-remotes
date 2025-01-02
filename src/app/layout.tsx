@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'TRWSDB | Toronto Remote Working Spots Database',
+  title: 'TRWSDB | Toronto Remote Working Spots',
   description: 'Toronto Remote Working Spots Database',
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased`}
       >
         <Navbar />
-        <div className='flex-1'>{children}</div>
+        <div className='flex-1 p-4'>{children}</div>
         <Footer />
       </body>
     </html>
