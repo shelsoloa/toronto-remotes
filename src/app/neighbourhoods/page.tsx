@@ -6,7 +6,7 @@ export default async function NeighbourhoodIndexPage() {
 
   return (
     <div>
-      <h1>Neighbourhoods</h1>
+      <h1>Toronto Remote Working Spots by Neighbourhood</h1>
       <ul>
         {neighbourhoods.map((neighbourhood) => (
           <li key={neighbourhood}>
