@@ -1,3 +1,4 @@
+import { Button } from './button';
 import { Venue } from '@/schema';
 import Link from 'next/link';
 
@@ -18,17 +19,26 @@ export default function VenueTable({ venues, showNeighbourhood = true }: VenueTa
       </div>
       {venues.map((venue: Venue) => (
         <div className={`grid gap-2 ${gridCols}`}>
-          <p className='font-bold'>
+          <Button
+            variant='link'
+            className='justify-start px-0'
+            asChild
+          >
             <Link href={`/venues/${venue.id}`}>{venue.fields.name}</Link>
-          </p>
-          <p>{venue.fields.score}</p>
+          </Button>
+
+          <p className='w-full justify-end'>{venue.fields.score}</p>
 
           {showNeighbourhood && (
-            <p>
+            <Button
+              variant='link'
+              className='justify-start px-0'
+              asChild
+            >
               <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>
                 {venue.fields.neighbourhood}
               </Link>
-            </p>
+            </Button>
           )}
         </div>
       ))}

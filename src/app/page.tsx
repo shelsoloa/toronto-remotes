@@ -10,7 +10,7 @@ export default async function Home() {
         Toronto <span className='rounded bg-amber-300 px-1'>Remote Working Spots</span> Database
       </h1>
 
-      <h2 className='text-2xl font-bold'>Recently added</h2>
+      <h2 className='pb-2 pt-8 text-2xl font-bold'>recently added</h2>
       <VenueTable venues={recentlyAddedVenues} />
     </div>
   );
