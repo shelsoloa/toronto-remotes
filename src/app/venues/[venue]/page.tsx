@@ -1,5 +1,7 @@
 import { getVenueById } from '@/actions';
 import Link from 'next/link';
+import { SectionHeader } from '@/components/ui/header';
+import { Button } from '@/components/ui/button';
 
 type Params = Promise<{ venue: string }>;
 
@@ -9,17 +11,16 @@ export default async function VenuePage({ params }: { params: Params }) {
 
   return (
     <div>
-      <h1>Name: {venue.fields.name}</h1>
-      <p>
-        Neighbourhood:{' '}
+      <SectionHeader>{venue.fields.name}</SectionHeader>
+      <Button variant='link' asChild>
         <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>
           {venue.fields.neighbourhood}
         </Link>
-      </p>
+      </Button>
       <p>Address: {venue.fields.address}</p>
       <p>Pros: {venue.fields.pros}</p>
       <p>Cons: {venue.fields.cons}</p>
-      <p>Score: {venue.fields.score}</p>
+      <p>Rating: {venue.fields.score}</p>
     </div>
   );
 }
