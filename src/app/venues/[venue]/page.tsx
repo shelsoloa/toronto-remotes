@@ -7,7 +7,12 @@ export default async function VenuePage({ params }: { params: { venue: string } 
   return (
     <div>
       <h1>Name: {venue.fields.name}</h1>
-      <p>Neighbourhood: <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>{venue.fields.neighbourhood}</Link></p>
+      <p>
+        Neighbourhood:{' '}
+        <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>
+          {venue.fields.neighbourhood}
+        </Link>
+      </p>
       <p>Address: {venue.fields.address}</p>
       <p>Pros: {venue.fields.pros}</p>
       <p>Cons: {venue.fields.cons}</p>
