@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <div>
       <h1 className='text-4xl font-bold'>
-        Toronto <span className='rounded bg-amber-300 px-1'>Remote Working Spots</span> Database
+        Toronto <span className='rounded bg-primary px-1'>Remote Working Spots</span> Database
       </h1>
 
       <h2 className='pb-2 pt-8 text-2xl font-bold'>recently added</h2>
