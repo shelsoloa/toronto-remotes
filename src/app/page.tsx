@@ -20,7 +20,7 @@ export default async function Home() {
           <p>{venue.fields.name}</p>
           <p>{venue.fields.score}</p>
           <p>
-            <Link href={`/neighbourhood/${venue.fields.neighbourhood}`}>{venue.fields.neighbourhood}</Link>
+            <Link href={`/neighbourhoods/${venue.fields.neighbourhood}`}>{venue.fields.neighbourhood}</Link>
           </p>
         </div>
       ))}

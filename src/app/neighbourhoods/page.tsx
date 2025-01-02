@@ -10,7 +10,7 @@ export default async function NeighbourhoodIndexPage() {
       <ul>
         {neighbourhoods.map((neighbourhood) => (
           <li key={neighbourhood}>
-            <Link href={`/neighbourhood/${neighbourhood}`}>{neighbourhood}</Link>
+            <Link href={`/neighbourhoods/${neighbourhood}`}>{neighbourhood}</Link>
           </li>
         ))}
       </ul>
