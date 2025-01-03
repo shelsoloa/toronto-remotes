@@ -5,7 +5,7 @@ import { Venue } from '@/schema';
 const baseAirtableUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}`;
 
 export async function getVenues(): Promise<Venue[]> {
-  const venues = await fetch(`${baseAirtableUrl}/venues`, {
+  const venues = await fetch(`${baseAirtableUrl}/venues?sort[0][field]=name&sort[0][direction]=asc`, {
     headers: {
       Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
     },
@@ -16,17 +16,20 @@ export async function getVenues(): Promise<Venue[]> {
 }
 
 export async function getRecentlyAddedVenues(): Promise<Venue[]> {
-  const venues = await getVenues();
-  return venues
-    .sort((a, b) => new Date(b.fields.created).getTime() - new Date(a.fields.created).getTime())
-    .slice(0, 5);
+  const venues = await fetch(`${baseAirtableUrl}/venues?sort[0][field]=created&sort[0][direction]=desc`, {
+    headers: {
+      Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+    },
+  });
+  const data = await venues.json();
+  return data.records.slice(0, 5);
 }
 
 export async function getNeighbourhoods(): Promise<string[]> {
   const venues = await getVenues();
-  return venues
+  return [...new Set(venues
     .map((venue: Venue) => venue.fields.neighbourhood)
-    .sort((a, b) => a.localeCompare(b));
+    .sort((a, b) => a.localeCompare(b)))];
 }
 
 export async function getVenuesByNeighbourhood(neighbourhood: string): Promise<Venue[]> {
